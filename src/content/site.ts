@@ -14,7 +14,6 @@ export const site = {
   githubUrl: "https://github.com/CyberJalagam",
   linkedinUrl: "https://www.linkedin.com/in/jaishnav-p",
   resumeHref: "/Jaishnav_Prasad_Resume.pdf",
-  available: "Open to Summer 2027 internships",
   url: "https://jaishnav.dev",
 } as const;
 

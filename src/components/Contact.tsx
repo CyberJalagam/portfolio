@@ -31,8 +31,8 @@ export function Contact() {
 
         <Reveal delay={0.12}>
           <p className="mt-7 max-w-lg leading-relaxed text-muted">
-            {site.available}, and always happy to talk about backend work, build
-            systems, or anything running on Linux.
+            Always happy to talk about backend work, build systems, or anything
+            running on Linux.
           </p>
         </Reveal>
 

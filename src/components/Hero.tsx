@@ -26,11 +26,7 @@ export function Hero({ portrait }: { portrait: ReactNode }) {
       <Container>
         {/* Status strip */}
         <Rise delay={0}>
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line pb-4">
-            <span className="flex items-center gap-2.5">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              <span className="label-mono text-muted">{site.available}</span>
-            </span>
+          <div className="flex flex-wrap items-center gap-3 border-b border-line pb-4">
             <span className="label-mono">{site.location}</span>
           </div>
         </Rise>
