@@ -97,30 +97,19 @@ export function Hero({ portrait }: { portrait: ReactNode }) {
       </Container>
 
       {/* ── Layered wordmark + portrait ──────────────────────────────────
-          The name is laid out first and the portrait is stacked on top of
-          it, so the type reads as passing behind the subject. Both are
-          bottom-aligned; the type is sized to run wider than the portrait
-          so the outer letters stay visible either side.
+          The portrait sits above the name and the name is pulled back up
+          under it, so the two overlap and the type still reads as sitting
+          behind the subject. The overlap is deliberately shallow (-0.1em
+          against the wordmark's own size, so it scales with the clamp) and
+          the portrait's lower edge is masked to a fade, which means the
+          body veils the tops of the letters instead of cutting them: every
+          letter of the name stays legible.
           ──────────────────────────────────────────────────────────────── */}
       <div className="relative mt-10 sm:mt-14">
         <Container className="relative">
-          <div className="relative flex items-end justify-center">
-            <motion.span
-              aria-hidden="true"
-              className="display-tight pointer-events-none absolute inset-x-0 bottom-0 z-0 text-center text-[clamp(2.75rem,15.5vw,12.5rem)] leading-[0.78] text-cream/90 select-none"
-              initial={reduced ? false : { opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.9,
-                delay: 0.5,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-            >
-              {WORDMARK}
-            </motion.span>
-
+          <div className="flex flex-col items-center">
             <motion.div
-              className="relative z-10 w-[62%] max-w-[420px] min-w-[210px]"
+              className="relative z-10 w-[58%] max-w-[380px] min-w-[190px]"
               initial={reduced ? false : { opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -131,6 +120,20 @@ export function Hero({ portrait }: { portrait: ReactNode }) {
             >
               {portrait}
             </motion.div>
+
+            <motion.span
+              aria-hidden="true"
+              className="display-tight relative z-0 -mt-[0.1em] block w-full text-center text-[clamp(2.75rem,15.5vw,12.5rem)] leading-[0.78] text-cream select-none"
+              initial={reduced ? false : { opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.9,
+                delay: 0.5,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+            >
+              {WORDMARK}
+            </motion.span>
           </div>
         </Container>
 

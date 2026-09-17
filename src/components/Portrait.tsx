@@ -52,14 +52,14 @@ export function Portrait() {
         className={
           cutout
             ? // Clean alpha edges, so it can simply sit on top of the type.
-              "object-contain object-bottom [filter:grayscale(0.85)_contrast(1.05)]"
-            : // No alpha channel, so the rectangle has to be hidden instead.
-              // The mask fades only the left, right and top edges and leaves
-              // the bottom solid, so the torso still occludes the wordmark
-              // behind it. A radial fade would eat the body and break that.
-              // Blacks are crushed just enough for the studio backdrop to
-              // meet the page, without turning the subject to mud.
-              "object-cover object-top [filter:grayscale(1)_brightness(0.86)_contrast(1.25)] [mask-composite:intersect] [mask-image:linear-gradient(to_right,transparent,#000_34%,#000_66%,transparent),linear-gradient(to_bottom,transparent,#000_24%)] [-webkit-mask-composite:source-in]"
+              "object-contain object-bottom"
+            : // No alpha channel, so the rectangle has to be hidden instead:
+              // the mask fades the left, right and top edges into the page.
+              // The bottom edge fades too, so where the body meets the
+              // wordmark it veils the letters rather than cutting them off.
+              // Colour is left alone; only a slight contrast lift, to settle
+              // the studio backdrop against the page.
+              "object-cover object-top [filter:contrast(1.08)_saturate(1.05)] [mask-composite:intersect] [mask-image:linear-gradient(to_right,transparent,#000_30%,#000_70%,transparent),linear-gradient(to_bottom,transparent,#000_22%,#000_82%,transparent)] [-webkit-mask-composite:source-in]"
         }
       />
     </div>
