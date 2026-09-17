@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { HoverLetters } from "./HoverLetters";
 import { Reveal } from "./Reveal";
 
 export function Container({
@@ -9,7 +10,9 @@ export function Container({
   className?: string;
 }) {
   return (
-    <div className={`mx-auto w-full max-w-6xl px-5 sm:px-8 lg:px-12 ${className}`}>
+    <div
+      className={`mx-auto w-full max-w-6xl px-5 sm:px-8 lg:px-12 ${className}`}
+    >
       {children}
     </div>
   );
@@ -34,7 +37,12 @@ export function SectionHeader({
         <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
           <div className="flex items-baseline gap-4">
             <span className="label-mono text-accent-dim">{index}</span>
-            <h2 className="display-tight text-2xl sm:text-3xl">{title}</h2>
+            <h2
+              aria-label={title}
+              className="display-tight text-2xl sm:text-3xl"
+            >
+              <HoverLetters text={title} />
+            </h2>
           </div>
           {/* ml-auto keeps the note right-aligned even when the row wraps. */}
           {note ? (

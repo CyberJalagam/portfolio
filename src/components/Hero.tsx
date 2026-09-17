@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
 import { hero, site } from "@/content/site";
 import { Container } from "./Section";
+import { HoverLetters } from "./HoverLetters";
 
 function Rise({ children, delay }: { children: ReactNode; delay: number }) {
   const reduced = useReducedMotion();
@@ -27,10 +28,7 @@ export function Hero({ portrait }: { portrait: ReactNode }) {
         <Rise delay={0}>
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line pb-4">
             <span className="flex items-center gap-2.5">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-70" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
-              </span>
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
               <span className="label-mono text-muted">{site.available}</span>
             </span>
             <span className="label-mono">{site.location}</span>
@@ -39,19 +37,18 @@ export function Hero({ portrait }: { portrait: ReactNode }) {
 
         <div className="grid grid-cols-1 gap-x-12 gap-y-12 pt-10 sm:pt-14 lg:grid-cols-12">
           <div className="lg:col-span-8">
-            <h1>
-              <Rise delay={0.08}>
-                <span className="label-mono block text-muted">{site.name}</span>
+            <h1 aria-label={`${hero.greeting}. ${site.role}`}>
+              <Rise delay={0.1}>
+                <HoverLetters
+                  text={hero.greeting}
+                  className="display-tight block text-[clamp(2.5rem,10vw,5.25rem)]"
+                />
               </Rise>
-              <Rise delay={0.16}>
-                <span className="display-tight mt-4 block text-[clamp(2.75rem,12.5vw,7.5rem)] uppercase">
-                  Software
-                </span>
-              </Rise>
-              <Rise delay={0.24}>
-                <span className="display-tight block text-[clamp(2.75rem,12.5vw,7.5rem)] uppercase text-muted">
-                  Engineer
-                </span>
+              <Rise delay={0.2}>
+                <HoverLetters
+                  text={site.role}
+                  className="display-tight mt-2 block text-[clamp(1.6rem,6vw,3.25rem)] text-muted sm:mt-3"
+                />
               </Rise>
             </h1>
 

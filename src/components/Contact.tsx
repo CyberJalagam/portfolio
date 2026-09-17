@@ -1,5 +1,6 @@
 import { site } from "@/content/site";
 import { Container } from "./Section";
+import { HoverLetters } from "./HoverLetters";
 import { Reveal } from "./Reveal";
 
 const channels = [
@@ -19,17 +20,19 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={0.05}>
-          <h2 className="display-tight mt-8 text-[clamp(2.25rem,9vw,5.5rem)] uppercase">
-            Let&rsquo;s build
-            <br />
-            <span className="text-muted">something.</span>
+          <h2
+            aria-label="Let's build something."
+            className="display-tight mt-8 text-[clamp(2.25rem,9vw,5.5rem)] uppercase"
+          >
+            <HoverLetters text="Let's build" className="block" />
+            <HoverLetters text="something." className="block text-muted" />
           </h2>
         </Reveal>
 
         <Reveal delay={0.12}>
           <p className="mt-7 max-w-lg leading-relaxed text-muted">
-            {site.available}, and always happy to talk about backend work,
-            build systems, or anything running on Linux.
+            {site.available}, and always happy to talk about backend work, build
+            systems, or anything running on Linux.
           </p>
         </Reveal>
 
@@ -85,12 +88,10 @@ export function Footer() {
           <p className="label-mono">
             © {new Date().getUTCFullYear()} {site.name}
           </p>
-          <p className="label-mono">
-            Built with Next.js · Deployed on Vercel
-          </p>
+          <p className="label-mono">Built with Next.js · Deployed on Vercel</p>
           <a
             href="#top"
-            className="label-mono transition-colors hover:text-accent"
+            className="link-wipe label-mono transition-colors hover:text-accent"
           >
             Back to top ↑
           </a>

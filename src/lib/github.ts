@@ -75,14 +75,9 @@ async function fetchYear(year: number): Promise<Year | null> {
  * Every year with activity, newest first. Years that return nothing are
  * dropped so the tab strip never offers an empty graph.
  */
-export async function getContributionYears(
-  firstYear = 2020,
-): Promise<Year[]> {
+export async function getContributionYears(firstYear = 2020): Promise<Year[]> {
   const now = new Date().getUTCFullYear();
-  const years = Array.from(
-    { length: now - firstYear + 1 },
-    (_, i) => now - i,
-  );
+  const years = Array.from({ length: now - firstYear + 1 }, (_, i) => now - i);
 
   const settled = await Promise.all(years.map(fetchYear));
   return settled.filter((y): y is Year => y !== null && y.total > 0);

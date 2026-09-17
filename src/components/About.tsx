@@ -18,9 +18,14 @@ export function About() {
         <Reveal delay={0.1}>
           <dl className="mt-10 grid grid-cols-1 gap-px overflow-hidden border border-line bg-line sm:grid-cols-2">
             {about.facts.map((f) => (
-              <div key={f.k} className="bg-ink px-5 py-4">
+              <div
+                key={f.k}
+                className="group bg-ink px-5 py-4 transition-colors duration-500 hover:bg-ink-2"
+              >
                 <dt className="label-mono">{f.k}</dt>
-                <dd className="mt-1 text-sm text-cream">{f.v}</dd>
+                <dd className="mt-1 text-sm text-cream transition-colors duration-500 group-hover:text-accent">
+                  {f.v}
+                </dd>
               </div>
             ))}
           </dl>
@@ -38,7 +43,10 @@ export function About() {
                 </p>
                 <ul className="mt-2 flex flex-wrap gap-x-3 gap-y-1.5">
                   {group.items.map((item) => (
-                    <li key={item} className="text-sm text-muted">
+                    <li
+                      key={item}
+                      className="text-sm text-muted transition-colors duration-300 hover:text-cream"
+                    >
                       {item}
                     </li>
                   ))}

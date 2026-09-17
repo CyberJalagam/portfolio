@@ -29,7 +29,9 @@ export function Nav() {
       (entries) => {
         const visible = entries
           .filter((e) => e.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+          .sort(
+            (a, b) => a.boundingClientRect.top - b.boundingClientRect.top,
+          )[0];
         if (visible) setActive(`#${visible.target.id}`);
       },
       { rootMargin: "-20% 0px -65% 0px", threshold: 0 },
@@ -75,7 +77,7 @@ export function Nav() {
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className={`font-mono text-xs tracking-wide transition-colors ${
+                  className={`link-wipe font-mono text-xs tracking-wide transition-colors ${
                     active === item.href
                       ? "text-accent"
                       : "text-muted hover:text-cream"
@@ -146,7 +148,9 @@ export function Nav() {
                       <span className="label-mono">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <span className="display-tight text-3xl">{item.label}</span>
+                      <span className="display-tight text-3xl">
+                        {item.label}
+                      </span>
                     </a>
                   </motion.li>
                 ))}

@@ -4,7 +4,12 @@ import path from "node:path";
 import { site } from "@/content/site";
 
 /** Drop a file at any of these paths and the hero picks it up. */
-const CANDIDATES = ["portrait.jpg", "portrait.jpeg", "portrait.png", "portrait.webp"];
+const CANDIDATES = [
+  "portrait.jpg",
+  "portrait.jpeg",
+  "portrait.png",
+  "portrait.webp",
+];
 
 function findPortrait(): string | null {
   const dir = path.join(process.cwd(), "public");

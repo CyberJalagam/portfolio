@@ -75,6 +75,34 @@ body {
   line-height: 0.92;
 }
 
+/* Underline that wipes in from the left and out to the right, so moving
+   along a row of links reads as one continuous gesture. */
+.link-wipe {
+  position: relative;
+}
+.link-wipe::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: -4px;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+.link-wipe:hover::after,
+.link-wipe:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link-wipe::after {
+    transition: none;
+  }
+}
+
 @utility label-mono {
   font-family: var(--font-mono);
   font-size: 0.6875rem;

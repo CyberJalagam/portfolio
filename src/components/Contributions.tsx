@@ -9,8 +9,18 @@ import { Reveal } from "./Reveal";
 const LEVEL = ["#17171a", "#33481a", "#567a22", "#8fbf30", "#c8ff4d"];
 
 const MONTHS = [
-  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
 ];
 
 function format(dateISO: string) {
@@ -46,7 +56,7 @@ export function Contributions({ years }: { years: Year[] }) {
             href={site.githubUrl}
             target="_blank"
             rel="noreferrer"
-            className="text-cream underline decoration-line underline-offset-4 hover:text-accent"
+            className="link-wipe text-cream transition-colors hover:text-accent"
           >
             See GitHub directly ↗
           </a>

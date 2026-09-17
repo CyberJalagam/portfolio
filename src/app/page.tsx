@@ -27,7 +27,7 @@ export default async function Home() {
         <Section id="work">
           <SectionHeader
             index="01 / Work"
-            title="Selected projects"
+            title="Projects"
             note="Backend systems, build automation and full-stack applications."
           />
           <Projects />

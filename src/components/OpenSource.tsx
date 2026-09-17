@@ -27,7 +27,10 @@ export function OpenSource() {
 
             <ul className="mt-6 flex flex-wrap gap-x-3 gap-y-1">
               {entry.stack.map((s) => (
-                <li key={s} className="font-mono text-[11px] text-faint">
+                <li
+                  key={s}
+                  className="font-mono text-[11px] text-faint transition-colors duration-300 hover:text-cream"
+                >
                   {s}
                 </li>
               ))}
@@ -38,7 +41,7 @@ export function OpenSource() {
                 href={entry.href}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-6 inline-flex w-fit font-mono text-xs tracking-wide text-cream underline decoration-line underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+                className="link-wipe mt-6 inline-flex w-fit font-mono text-xs tracking-wide text-cream transition-colors hover:text-accent"
               >
                 Source ↗
               </a>

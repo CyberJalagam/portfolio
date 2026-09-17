@@ -19,7 +19,7 @@ export const site = {
 } as const;
 
 export const hero = {
-  lead: "Software engineer in Toronto.",
+  greeting: "Hi, I'm Jaishnav",
   body: "I build backends, automate the boring parts of shipping software, and spend a lot of time inside Linux. Four years of open-source systems work: a custom Android OS, a kernel, and the pipelines that build them.",
   serif: "systems, not screenshots",
 };

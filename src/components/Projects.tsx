@@ -7,7 +7,7 @@ import { Reveal } from "./Reveal";
 
 function Tag({ children }: { children: string }) {
   return (
-    <span className="rounded-full border border-line px-2.5 py-1 font-mono text-[11px] tracking-wide text-muted">
+    <span className="rounded-full border border-line px-2.5 py-1 font-mono text-[11px] tracking-wide text-muted transition-colors duration-300 hover:border-accent hover:text-accent">
       {children}
     </span>
   );
@@ -44,7 +44,7 @@ function Row({
           {String(index + 1).padStart(2, "0")}
         </span>
 
-        <span className="min-w-0 flex-1">
+        <span className="min-w-0 flex-1 transition-transform duration-500 ease-out group-hover:translate-x-1 motion-reduce:transform-none">
           <span className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
             <span
               className={`display-tight text-2xl transition-colors sm:text-[2rem] ${
@@ -107,7 +107,7 @@ function Row({
                       href={link.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="font-mono text-xs tracking-wide text-cream underline decoration-line underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+                      className="link-wipe font-mono text-xs tracking-wide text-cream transition-colors hover:text-accent"
                     >
                       {link.label} ↗
                     </a>
