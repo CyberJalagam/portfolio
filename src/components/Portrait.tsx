@@ -51,15 +51,15 @@ export function Portrait() {
         sizes="(max-width: 640px) 80vw, (max-width: 1024px) 55vw, 460px"
         className={
           cutout
-            ? // Clean alpha edges, so it can simply sit on top of the type.
+            ? // Real alpha edges already, so nothing to hide.
               "object-contain object-bottom"
-            : // No alpha channel, so the rectangle has to be hidden instead:
-              // the mask fades the left, right and top edges into the page.
-              // The bottom edge fades too, so where the body meets the
-              // wordmark it veils the letters rather than cutting them off.
+            : // No alpha channel, so the rectangle is dissolved with a soft
+              // vignette: opaque across the subject, falling off to nothing
+              // well before the frame edge. That is what lets the photo merge
+              // into the page beside the copy instead of reading as a box.
               // Colour is left alone; only a slight contrast lift, to settle
               // the studio backdrop against the page.
-              "object-cover object-top [filter:contrast(1.08)_saturate(1.05)] [mask-composite:intersect] [mask-image:linear-gradient(to_right,transparent,#000_30%,#000_70%,transparent),linear-gradient(to_bottom,transparent,#000_22%,#000_82%,transparent)] [-webkit-mask-composite:source-in]"
+              "object-cover object-top [filter:contrast(1.08)_saturate(1.05)] [mask-image:radial-gradient(60%_66%_at_52%_38%,#000_38%,rgba(0,0,0,0.42)_64%,transparent_84%)]"
         }
       />
     </div>
