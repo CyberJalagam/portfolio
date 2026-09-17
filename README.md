@@ -35,16 +35,21 @@ To regenerate after replacing the original:
 node -e "const s=require('sharp');s('assets/portrait-original.jpg').rotate().resize({width:1400}).jpeg({quality:82,mozjpeg:true,progressive:true}).toFile('public/portrait.jpg')"
 ```
 
-## GitHub contribution graph
+## GitHub contribution graph (currently off)
 
-`src/lib/github.ts` pulls the contribution calendar from the public
+**Not on the page right now.** The code is intact and unused: see the
+comment at the top of [`src/app/page.tsx`](src/app/page.tsx) for the exact
+four lines and the block to restore.
+
+When on, `src/lib/github.ts` pulls the contribution calendar from the public
 `github-contributions-api.jogruber.de` proxy. No token, nothing to rotate.
 It fetches every year from 2020 to the current one, drops the empty ones,
 and renders a year picker. If the upstream is down the section degrades to
 a plain link rather than erroring.
 
-The page is statically prerendered and revalidates hourly
-(`export const revalidate = 3600` in `src/app/page.tsx`).
+The graph is the only thing on the site that fetches anything. With it off
+the page is fully static, which is why there is no longer a `revalidate`
+export; putting the graph back means putting that back too.
 
 ## Social preview
 

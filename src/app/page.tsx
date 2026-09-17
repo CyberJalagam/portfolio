@@ -1,6 +1,5 @@
 import { About } from "@/components/About";
 import { Contact, Footer } from "@/components/Contact";
-import { Contributions } from "@/components/Contributions";
 import { Experience } from "@/components/Experience";
 import { Hero } from "@/components/Hero";
 import { Nav } from "@/components/Nav";
@@ -8,15 +7,28 @@ import { OpenSource } from "@/components/OpenSource";
 import { Portrait } from "@/components/Portrait";
 import { Projects } from "@/components/Projects";
 import { Section, SectionHeader } from "@/components/Section";
-import { site } from "@/content/site";
-import { getContributionYears } from "@/lib/github";
 
-// Contribution data is refetched hourly; everything else is static.
-export const revalidate = 3600;
-
-export default async function Home() {
-  const years = await getContributionYears();
-
+/**
+ * The GitHub contribution graph is shelved, not deleted. To bring it back,
+ * restore these four things:
+ *
+ *   import { Contributions } from "@/components/Contributions";
+ *   import { getContributionYears } from "@/lib/github";
+ *   export const revalidate = 3600;   // the graph is the only live data
+ *   const years = await getContributionYears();
+ *
+ * then drop this back inside the open-source section:
+ *
+ *   <div className="mt-16">
+ *     <SectionHeader index="Activity" title={`@${site.github}`} />
+ *     <Contributions years={years} />
+ *   </div>
+ *
+ * Contributions.tsx and lib/github.ts are both untouched and still work.
+ * With the graph out, nothing on the page fetches, so it is fully static
+ * and needs no revalidate window.
+ */
+export default function Home() {
   return (
     <>
       <Nav />
@@ -40,11 +52,6 @@ export default async function Home() {
             note="Custom Android distributions and kernels, built in public since 2020."
           />
           <OpenSource />
-
-          <div className="mt-16">
-            <SectionHeader index="Activity" title={`@${site.github}`} />
-            <Contributions years={years} />
-          </div>
         </Section>
 
         <Section id="experience">
