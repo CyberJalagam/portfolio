@@ -41,14 +41,14 @@ export function Contributions({ years }: { years: Year[] }) {
     return (
       <Reveal>
         <p className="mt-10 text-sm text-muted">
-          Contribution data is unavailable right now —{" "}
+          Contribution data is unavailable right now.{" "}
           <a
             href={site.githubUrl}
             target="_blank"
             rel="noreferrer"
             className="text-cream underline decoration-line underline-offset-4 hover:text-accent"
           >
-            see GitHub directly ↗
+            See GitHub directly ↗
           </a>
         </p>
       </Reveal>
@@ -69,7 +69,7 @@ export function Contributions({ years }: { years: Year[] }) {
             contributions in {year.year}
           </p>
 
-          {/* Year picker — the early years are the custom-ROM era. */}
+          {/* Year picker. The early years are the custom-ROM era. */}
           <div className="-mx-1 flex max-w-full gap-1 overflow-x-auto px-1 pb-1">
             {years.map((y, i) => (
               <button

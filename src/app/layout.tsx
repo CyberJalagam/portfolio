@@ -24,13 +24,13 @@ const instrument = Instrument_Serif({
 });
 
 const description =
-  "Software engineer in Toronto. Backend, build automation and Linux systems — co-founder of the CipherOS Android distribution and lead developer of the Alien kernel.";
+  "Software engineer in Toronto. Backend, build automation and Linux systems. Co-founder of the CipherOS Android distribution and lead developer of the Alien kernel.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.role}`,
-    template: `%s — ${site.name}`,
+    default: `${site.name} | ${site.role}`,
+    template: `%s | ${site.name}`,
   },
   description,
   keywords: [
@@ -49,12 +49,12 @@ export const metadata: Metadata = {
     locale: "en_CA",
     url: site.url,
     siteName: site.name,
-    title: `${site.name} — ${site.role}`,
+    title: `${site.name} | ${site.role}`,
     description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — ${site.role}`,
+    title: `${site.name} | ${site.role}`,
     description,
   },
   robots: { index: true, follow: true },

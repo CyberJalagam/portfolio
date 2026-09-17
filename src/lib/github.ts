@@ -10,7 +10,7 @@ const API = "https://github-contributions-api.jogruber.de/v4";
 export type Day = {
   date: string;
   count: number;
-  /** 0–4, GitHub's own intensity bucket. */
+  /** 0 to 4, GitHub's own intensity bucket. */
   level: number;
 };
 
@@ -54,7 +54,7 @@ function toWeeks(days: Day[]): (Day | null)[][] {
 async function fetchYear(year: number): Promise<Year | null> {
   try {
     const res = await fetch(`${API}/${site.github}?y=${year}`, {
-      // Rebuilt hourly — the graph moves at most once a day.
+      // Rebuilt hourly. The graph moves at most once a day.
       next: { revalidate: 3600 },
     });
     if (!res.ok) return null;

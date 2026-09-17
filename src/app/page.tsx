@@ -42,7 +42,7 @@ export default async function Home() {
           <OpenSource />
 
           <div className="mt-16">
-            <SectionHeader index="—" title={`@${site.github}`} />
+            <SectionHeader index="Activity" title={`@${site.github}`} />
             <Contributions years={years} />
           </div>
         </Section>

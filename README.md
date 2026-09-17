@@ -1,6 +1,6 @@
 # jaishnav.dev
 
-Personal portfolio — a single scrolling page, dark editorial, built with
+Personal portfolio. A single scrolling page, dark editorial, built with
 Next.js 16 (App Router), Tailwind v4 and Motion.
 
 ```bash
@@ -12,7 +12,7 @@ npm run lint
 ## Editing content
 
 **Everything you will want to change lives in [`src/content/site.ts`](src/content/site.ts).**
-Copy, links, projects, jobs, skills, education — all of it. The components
+Copy, links, projects, jobs, skills, education, all of it. The components
 read from that file and nothing else hardcodes content, so you should
 never need to open a `.tsx` file to update the site.
 
@@ -27,7 +27,7 @@ link automatically.
 | `portrait.jpg` | Hero photo. Any of `.jpg/.jpeg/.png/.webp` is picked up automatically; with none present the hero shows a monogram placeholder instead of breaking. |
 | `Jaishnav_Prasad_Resume.pdf` | Linked from the nav, hero and mobile menu. Overwrite in place to update. |
 
-The full-resolution original photo is kept in `assets/` (gitignored — it is
+The full-resolution original photo is kept in `assets/` (gitignored, since it is
 19 MB). The shipped copy is resized to 1400px wide and compressed to ~67 KB.
 To regenerate after replacing the original:
 
@@ -38,7 +38,7 @@ node -e "const s=require('sharp');s('assets/portrait-original.jpg').rotate().res
 ## GitHub contribution graph
 
 `src/lib/github.ts` pulls the contribution calendar from the public
-`github-contributions-api.jogruber.de` proxy — no token, nothing to rotate.
+`github-contributions-api.jogruber.de` proxy. No token, nothing to rotate.
 It fetches every year from 2020 to the current one, drops the empty ones,
 and renders a year picker. If the upstream is down the section degrades to
 a plain link rather than erroring.
@@ -52,7 +52,7 @@ The page is statically prerendered and revalidates hourly
 build time from the same `site.ts` data, so it can't drift out of sync.
 `src/app/icon.svg` is the favicon.
 
-Before going live, set the real domain in `site.url` — it backs
+Before going live, set the real domain in `site.url`. It backs
 `metadataBase` and the canonical/OG URLs.
 
 ## Deploying

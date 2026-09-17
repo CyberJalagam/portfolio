@@ -23,7 +23,7 @@ export function Portrait() {
 
   return (
     <div className="relative">
-      {/* Offset rule behind the frame — a little editorial depth. */}
+      {/* Offset rule behind the frame, for a little editorial depth. */}
       <div
         aria-hidden
         className="absolute -inset-x-3 -inset-y-3 border border-line-soft"
