@@ -134,6 +134,15 @@ export const openSource: OpenSourceEntry[] = [
     href: "https://github.com/CyberJalagam/kernel_oppo_mt6771",
   },
   {
+    title: "BXtreme",
+    role: "Lead Developer",
+    period: "2021",
+    blurb:
+      "A battery-optimised build of Alien Kernel, tuned for power efficiency and endurance on the same devices while carrying over the base kernel's stability work.",
+    stack: ["Linux kernel", "C", "Power management"],
+    href: null,
+  },
+  {
     title: "DotOS",
     role: "Device Maintainer",
     period: "2020 - 2021",
