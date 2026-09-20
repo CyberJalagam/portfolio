@@ -70,17 +70,6 @@ export function About() {
             ))}
           </ul>
         </Reveal>
-
-        <Reveal delay={0.24}>
-          <h3 className="label-mono mt-12">Awards &amp; certifications</h3>
-          <ul className="mt-5 space-y-2">
-            {about.awards.map((a) => (
-              <li key={a} className="text-sm text-muted">
-                {a}
-              </li>
-            ))}
-          </ul>
-        </Reveal>
       </div>
     </div>
   );

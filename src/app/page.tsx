@@ -2,6 +2,7 @@ import { About } from "@/components/About";
 import { Contact, Footer } from "@/components/Contact";
 import { Experience } from "@/components/Experience";
 import { Hero } from "@/components/Hero";
+import { Impact } from "@/components/Impact";
 import { Nav } from "@/components/Nav";
 import { OpenSource } from "@/components/OpenSource";
 import { Portrait } from "@/components/Portrait";
@@ -63,9 +64,18 @@ export default function Home() {
           <Experience />
         </Section>
 
+        <Section id="impact" className="bg-ink-2">
+          <SectionHeader
+            index="04 / Impact"
+            title="Beyond the code"
+            note="Student services, mentoring and governance at Seneca."
+          />
+          <Impact />
+        </Section>
+
         <Section id="about">
           <SectionHeader
-            index="04 / About"
+            index="05 / About"
             title="A bit more"
             note="Education, stack and the rest of it."
           />

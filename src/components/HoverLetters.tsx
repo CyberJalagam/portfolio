@@ -1,3 +1,5 @@
+import { Fragment } from "react";
+
 /**
  * Splits text so each letter reacts to the cursor on its own, which makes
  * sweeping across a headline feel like a wave rather than one block flipping
@@ -25,18 +27,23 @@ export function HoverLetters({
   return (
     <span aria-hidden="true" className={className}>
       {words.map((word, w) => (
-        <span key={`${word}-${w}`} className="inline-block whitespace-nowrap">
-          {Array.from(word).map((char, i) => (
-            <span
-              key={i}
-              className="inline-block transition-[transform,color] duration-200 ease-out hover:-translate-y-[0.08em] hover:text-accent motion-reduce:transform-none motion-reduce:transition-none"
-            >
-              {char}
-            </span>
-          ))}
-          {/* Real space between words, outside the hover targets. */}
-          {w < words.length - 1 ? <span>&nbsp;</span> : null}
-        </span>
+        <Fragment key={`${word}-${w}`}>
+          <span className="inline-block whitespace-nowrap">
+            {Array.from(word).map((char, i) => (
+              <span
+                key={i}
+                className="inline-block transition-[transform,color] duration-200 ease-out hover:-translate-y-[0.08em] hover:text-accent motion-reduce:transform-none motion-reduce:transition-none"
+              >
+                {char}
+              </span>
+            ))}
+          </span>
+          {/* A plain space between the word wrappers, not &nbsp; inside one.
+              It has to be an ordinary U+0020 or Ctrl+F and copied text carry
+              a non-breaking space instead, and it has to sit outside the
+              nowrap wrappers so lines can still break between words. */}
+          {w < words.length - 1 ? " " : null}
+        </Fragment>
       ))}
     </span>
   );

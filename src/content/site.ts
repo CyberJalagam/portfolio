@@ -27,6 +27,7 @@ export const nav = [
   { label: "Work", href: "#work" },
   { label: "Open Source", href: "#open-source" },
   { label: "Experience", href: "#experience" },
+  { label: "Impact", href: "#impact" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
@@ -128,9 +129,27 @@ export const openSource: OpenSourceEntry[] = [
     role: "Lead Developer",
     period: "Dec 2020 - Oct 2021",
     blurb:
-      "Led development of a custom Linux kernel for Android, working in C on systems-level performance and stability patches. Recruited and onboarded contributors as the project grew.",
-    stack: ["Linux kernel", "C", "Make", "GitHub Actions"],
+      "Led development of a custom Linux kernel for Android, working in C on systems-level performance and stability patches. Ported the IMS service to Android 10 on the MediaTek mt6771 platform, and recruited and onboarded contributors as the project grew.",
+    stack: ["Linux kernel", "C", "IMS", "Make", "GitHub Actions"],
     href: "https://github.com/CyberJalagam/kernel_oppo_mt6771",
+  },
+  {
+    title: "DotOS",
+    role: "Device Maintainer",
+    period: "2020 - 2021",
+    blurb:
+      "Maintained device tree sources and official builds for DotOS, keeping supported hardware current through platform releases and shipping regular updates to users.",
+    stack: ["AOSP", "Device trees", "C/C++", "Bash"],
+    href: null,
+  },
+  {
+    title: "Resurrection Remix",
+    role: "Device Maintainer",
+    period: "2020 - 2021",
+    blurb:
+      "Maintained device support for one of the longest-running Android custom ROM projects, handling build bring-up, testing and debugging across releases.",
+    stack: ["AOSP", "Device trees", "C/C++", "Bash"],
+    href: null,
   },
   {
     title: "Project Sakura",
@@ -143,54 +162,153 @@ export const openSource: OpenSourceEntry[] = [
   },
 ];
 
-export type Job = {
-  role: string;
-  org: string;
+/** One posting. Several can sit under a single employer. */
+export type Role = {
+  title: string;
   period: string;
+  /** Employment type and arrangement, e.g. "Contract Part-time · Hybrid". */
+  meta?: string;
   points: string[];
+};
+
+export type Job = {
+  org: string;
+  /** Combined tenure, shown only when an employer has more than one role. */
+  span?: string;
+  location?: string;
   href: string | null;
+  roles: Role[];
 };
 
 export const experience: Job[] = [
   {
-    role: "Co-Founder & Lead Developer",
     org: "Dravix Studios",
-    period: "Aug 2026 - Present",
-    points: [
-      "Co-founded a web development and AI solutions studio serving businesses in Toronto and India.",
-      "Ship live client sites in Next.js on Vercel, owning requirements through to hosting and maintenance.",
+    location: "Toronto, ON",
+    href: "https://dravixstudios.com",
+    roles: [
+      {
+        title: "Co-Founder & Lead Developer",
+        period: "Aug 2026 - Present",
+        points: [
+          "Co-founded a web solutions, AI and IT consulting company serving clients in Toronto and India, shipping 9 production sites and holding 3 recurring paying clients.",
+          "Build and deploy client systems in Next.js on Vercel, including alomcare.com, orisdentistry.com and wamiqadesigns.com, an automated ordering flow with payment gateway checkout, and a patient management system.",
+          "Own each engagement end to end: requirements, build, hosting, automation and ongoing maintenance.",
+        ],
+      },
     ],
-    href: null,
   },
   {
-    role: "Vice-Chair, Board of Directors",
     org: "Seneca Student Federation",
-    period: "May 2026 - Present",
-    points: [
-      "Elected by students to help govern a student organization with a $13.7M annual operating budget, holding fiduciary responsibility for budget approval and organizational oversight.",
-      "Ran a technical gap analysis of the organization's Drupal 8 website, identified end-of-life security exposure, and raised structured accountability questions to leadership.",
+    location: "Toronto, ON · Hybrid",
+    href: "https://ssfinc.ca",
+    roles: [
+      {
+        title: "Vice-Chair, Board of Directors",
+        period: "May 2026 - Present",
+        points: [
+          "Elected by students to help govern a student organization with a $13.7M annual operating budget, holding fiduciary responsibility for budget approval and organizational oversight.",
+          "Ran a gap analysis of the federation website (ssfinc.ca), identifying functionality and accessibility shortfalls and presenting recommendations to the board.",
+          "Work directly with the Executive Director and operational managers to align board decisions with day-to-day operations.",
+          "Prepare board materials and accountability questions supporting oversight of the Executive Director and senior staff, and review governance and policy documents for compliance and equity concerns.",
+        ],
+      },
     ],
-    href: null,
   },
   {
-    role: "Vice President",
-    org: "Google Developer Group on Campus, Seneca",
-    period: "Jan 2026 - May 2026",
-    points: [
-      "Rebuilt a campus developer chapter that had been inactive for several semesters.",
-      "Coordinated AI workshops and ran the tech booth at International Days across two campuses.",
-    ],
-    href: null,
-  },
-  {
-    role: "Senior Student Office Assistant",
     org: "Seneca Polytechnic",
-    period: "Oct 2024 - Present",
-    points: [
-      "Lead front-line student services operations, resolving inquiries in person, by phone and online, and escalating complex cases.",
-      "Administrator and Lead Mentor for the peer mentoring program, onboarding mentors and overseeing matching on the Chronus platform.",
-    ],
+    span: "2 yrs 2 mos",
+    location: "Toronto, ON",
     href: null,
+    roles: [
+      {
+        title: "Senior Student Office Assistant",
+        period: "Apr 2025 - Present",
+        meta: "Contract Part-time · Hybrid",
+        points: [
+          "Lead student services operations and host orientation events for incoming students, coordinating presenters across departments.",
+          "Administrator and Lead Mentor for the peer mentoring program: onboard and train mentors, and oversee mentor-mentee matching on the Chronus platform for 300+ students.",
+          "Host and facilitate Peer2Peer Lounges, Campus Welcome Day, campus tours and virtual orientations, and drive digital engagement promoting student services online.",
+        ],
+      },
+      {
+        title: "Student Help Desk Representative",
+        period: "Apr 2026 - Aug 2026",
+        meta: "Contract Part-time · On-site",
+        points: [
+          "First point of contact for students seeking academic and campus service support, triaging and routing cases to the right department.",
+          "Provided technical assistance to students navigating Seneca systems and platforms, and documented interactions to maintain service continuity.",
+        ],
+      },
+      {
+        title: "Open House Ambassador",
+        period: "Oct 2024 - Jul 2025",
+        meta: "Contract Part-time · On-site",
+        points: [
+          "Student representative at open houses: led campus tours showcasing key facilities, greeted guests and provided wayfinding.",
+          "Shared insights on the student campus experience with prospective students and families.",
+        ],
+      },
+      {
+        title: "Peer Mentor",
+        period: "Aug 2024 - Aug 2025",
+        points: [
+          "Helped new students with academic and off-campus transition, directing them to the right campus resources and following up to keep them on track.",
+        ],
+      },
+    ],
+  },
+  {
+    org: "Google Developer Group",
+    location: "Toronto, ON",
+    href: null,
+    roles: [
+      {
+        title: "Vice President, Seneca Polytechnic",
+        period: "Jan 2026 - May 2026",
+        points: [
+          "Rebuilt a campus developer chapter that had been inactive for several semesters.",
+          "Coordinated AI workshops and ran the tech booth at International Days across two campuses.",
+        ],
+      },
+    ],
+  },
+  {
+    org: "Shake Shack Canada",
+    span: "1 yr 11 mos",
+    location: "Toronto, ON · On-site",
+    href: null,
+    roles: [
+      {
+        title: "Certified Trainer",
+        period: "Nov 2025 - Present",
+        meta: "Permanent Part-time",
+        points: [
+          "Onboard and certify new team members on point-of-sale systems, operational tools and service standards.",
+          "Primary escalation point for complex guest issues during high-volume shifts.",
+        ],
+      },
+      {
+        title: "Team Member",
+        period: "Nov 2024 - Nov 2025",
+        meta: "Permanent Part-time",
+        points: [],
+      },
+    ],
+  },
+  {
+    org: "LCBO",
+    location: "Toronto, ON · On-site",
+    href: null,
+    roles: [
+      {
+        title: "Customer Service Representative",
+        period: "Nov 2024 - Jan 2025",
+        meta: "Seasonal",
+        points: [
+          "Front-line service and point-of-sale support through a high-volume seasonal retail period.",
+        ],
+      },
+    ],
   },
 ];
 
@@ -244,7 +362,7 @@ export const about = {
     "Outside of code I sit on the board of a student federation with a $13.7M budget, which has taught me more about writing a clear argument than any class has.",
   ],
   facts: [
-    { k: "Based in", v: "Toronto, ON" },
+    { k: "Based in", v: site.location },
     { k: "Studying", v: "HBTech, Software Development" },
     { k: "GPA", v: "3.7" },
     { k: "Graduating", v: "Summer 2028" },
@@ -261,6 +379,31 @@ export const about = {
       program: "Ontario College Diploma, Computer Programming · GPA 3.7",
       period: "2024 - 2026",
     },
+  ],
+};
+
+/**
+ * Quantified outcomes from the student-services and governance work.
+ * Figures come from the involvement write-up; keep them defensible.
+ * `**double asterisks**` mark the words the Impact section emphasises.
+ */
+export const impact = {
+  stats: [
+    { value: "900+", label: "Mentees in the program I run" },
+    { value: "100+", label: "Mentors onboarded and matched" },
+    { value: "150+", label: "Students through pre-arrival support" },
+    { value: "10+", label: "Campus tours across four open houses" },
+  ],
+  highlights: [
+    "Advanced from Peer Mentor to **Lead Mentor** in Fall 2025, taking over the whole peer mentoring program: **mentor** and **mentee** matching, platform inquiries, and drop-in sessions for mentors hitting problems.",
+    "Hosted the **International Virtual Orientation** and **Virtual Orientation for All Students** for the **Fall 2026** term, managing attendees and running the flow on the day.",
+    "Kept the program running through a **full-time staff strike**, absorbing administrative duties so that **no student was left without support**.",
+    "Personally mentored **25+ mentees**, including a reassignment after a student's poor experience with a previous **mentor**.",
+    "Ran **10+ campus tours** across four open house cycles, reaching **30+ prospective students** and their families.",
+    "Hosted **meet-and-greet lounges** for international virtual orientation and in-person events, and sat on the **student experience panel**.",
+    "Escalated **platform usability** problems students were hitting to program coordinators, feeding into program improvements.",
+    "Wrote **exam-preparation posts** on MySeneca and contributed content to **Seneca Student Life's Instagram**.",
+    "Volunteered at the **Taiwanese Student Association's** inaugural King campus event, and supported locker programming and clearances.",
   ],
   awards: [
     "International Student Achievement Award, Summer 2026",

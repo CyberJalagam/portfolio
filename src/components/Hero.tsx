@@ -24,19 +24,12 @@ export function Hero({ portrait }: { portrait: ReactNode }) {
   return (
     <section id="top" className="relative pt-28 pb-20 sm:pt-36 sm:pb-28">
       <Container>
-        {/* Status strip */}
-        <Rise delay={0}>
-          <div className="flex flex-wrap items-center gap-3 border-b border-line pb-4">
-            <span className="label-mono">{site.location}</span>
-          </div>
-        </Rise>
-
         {/* Text left, portrait right. On large screens the portrait column is
             pulled left so its feathered edge drifts in behind the copy: the
             two read as one field rather than two boxes side by side. The text
             sits above it, and the copy is capped short of the overlap so
             nothing is ever read against the photo. */}
-        <div className="grid items-center gap-y-10 pt-10 sm:pt-14 lg:grid-cols-12 lg:gap-x-4">
+        <div className="grid items-center gap-y-10 lg:grid-cols-12 lg:gap-x-4">
           <div className="relative z-10 lg:col-span-7">
             <h1 aria-label={`${hero.greeting}. ${site.role}`}>
               <Rise delay={0.1}>
@@ -52,6 +45,13 @@ export function Hero({ portrait }: { portrait: ReactNode }) {
                 />
               </Rise>
             </h1>
+
+            {/* Location sits with the role rather than on a rule of its own,
+                where it reads as a caption to "Software Engineer". Outside
+                the h1, so it stays out of the heading's accessible name. */}
+            <Rise delay={0.26}>
+              <p className="label-mono mt-4">{site.location}</p>
+            </Rise>
 
             <Rise delay={0.32}>
               <p className="mt-7 max-w-lg text-base leading-relaxed text-muted">

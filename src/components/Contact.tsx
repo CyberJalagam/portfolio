@@ -15,7 +15,7 @@ export function Contact() {
       <Container>
         <Reveal>
           <div className="border-t border-line pt-5">
-            <span className="label-mono text-accent-dim">05 / Contact</span>
+            <span className="label-mono text-accent-dim">06 / Contact</span>
           </div>
         </Reveal>
 
