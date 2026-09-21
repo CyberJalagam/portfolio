@@ -31,20 +31,33 @@ export function Impact() {
         <div className="lg:col-span-8">
           <Reveal delay={0.06}>
             <h3 className="label-mono">Selected highlights</h3>
-            <ul className="mt-5 space-y-3">
-              {impact.highlights.map((h) => (
-                <li
-                  key={h}
-                  className="group relative max-w-2xl pl-5 text-sm leading-relaxed text-muted transition-colors duration-300 hover:text-cream"
-                >
-                  <span
-                    aria-hidden
-                    className="absolute top-2.5 left-0 h-px w-2.5 bg-line transition-all duration-300 group-hover:w-3.5 group-hover:bg-accent-dim"
-                  />
-                  {h}
-                </li>
+
+            {/* Three themed groups rather than one run of nine bullets. The
+                group name gives the eye somewhere to land, and each theme is
+                short enough to take in without scanning back. */}
+            <div className="mt-6 space-y-8">
+              {impact.highlights.map((section) => (
+                <div key={section.group}>
+                  <p className="font-mono text-xs tracking-wide text-accent-dim">
+                    {section.group}
+                  </p>
+                  <ul className="mt-3 space-y-3">
+                    {section.items.map((item) => (
+                      <li
+                        key={item}
+                        className="group relative max-w-2xl pl-5 text-sm leading-relaxed text-muted transition-colors duration-300 hover:text-cream"
+                      >
+                        <span
+                          aria-hidden
+                          className="absolute top-2.5 left-0 h-px w-2.5 bg-line transition-all duration-300 group-hover:w-3.5 group-hover:bg-accent-dim"
+                        />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
-            </ul>
+            </div>
           </Reveal>
         </div>
 

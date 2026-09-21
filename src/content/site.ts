@@ -429,16 +429,32 @@ export const impact = {
     { value: "150+", lead: "Students", rest: "through pre-arrival support" },
     { value: "10+", lead: "Campus tours", rest: "across four open houses" },
   ],
+  // Grouped so the section scans as three themes instead of one long list.
   highlights: [
-    "Advanced from Peer Mentor to Lead Mentor in Fall 2025, taking over the whole peer mentoring program: mentor and mentee matching, platform inquiries, and drop-in sessions for mentors hitting problems.",
-    "Hosted the International Virtual Orientation and Virtual Orientation for All Students for the Fall 2026 term, managing attendees and running the flow on the day.",
-    "Kept the program running through a full-time staff strike, absorbing administrative duties so that no student was left without support.",
-    "Personally mentored 25+ mentees, including a reassignment after a student's poor experience with a previous mentor.",
-    "Ran 10+ campus tours across four open house cycles, reaching 30+ prospective students and their families.",
-    "Hosted meet-and-greet lounges for international virtual orientation and in-person events, and sat on the student experience panel.",
-    "Escalated platform usability problems students were hitting to program coordinators, feeding into program improvements.",
-    "Wrote exam-preparation posts on MySeneca and contributed content to Seneca Student Life's Instagram.",
-    "Volunteered at the Taiwanese Student Association's inaugural King campus event, and supported locker programming and clearances.",
+    {
+      group: "Mentoring",
+      items: [
+        "Promoted from Peer Mentor to Lead Mentor in Fall 2025, and now run the program: matching, platform inquiries and mentor drop-in sessions.",
+        "Kept it running through a full-time staff strike, absorbing the admin so that no student lost support.",
+        "Mentored 25+ students directly, including one reassigned after a poor experience with a previous mentor.",
+      ],
+    },
+    {
+      group: "Orientation and tours",
+      items: [
+        "Hosted both Fall 2026 orientations, International and All Students, managing attendees and running the flow on the day.",
+        "Ran 10+ campus tours across four open house cycles, reaching 30+ prospective students and their families.",
+        "Hosted meet-and-greet lounges for virtual and in-person events, and sat on the student experience panel.",
+      ],
+    },
+    {
+      group: "Community and content",
+      items: [
+        "Escalated platform usability problems to program coordinators, feeding into improvements.",
+        "Wrote exam-preparation posts for MySeneca and contributed to Seneca Student Life's Instagram.",
+        "Volunteered at the Taiwanese Student Association's first King campus event, and supported locker programming.",
+      ],
+    },
   ],
   awards: [
     "International Student Achievement Award, Summer 2026",
