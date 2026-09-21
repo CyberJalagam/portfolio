@@ -21,10 +21,10 @@ In `impact.highlights`, `**wrapped**` text renders emphasised.
 
 ## public/
 
-- `portrait.jpg` — hero photo. `.jpg/.jpeg/.png/.webp` all work, and a
+- `portrait.jpg`: hero photo. `.jpg/.jpeg/.png/.webp` all work, and a
   `portrait-cutout.*` takes precedence if a transparent version exists.
   With none present the hero falls back to a monogram.
-- `Jaishnav_Prasad_Resume.pdf` — overwrite in place to update.
+- `Jaishnav_Prasad_Resume.pdf`: overwrite in place to update.
 
 The 19 MB original lives in `assets/` (gitignored). The shipped copy is
 1400px wide, ~67 KB. To regenerate:
