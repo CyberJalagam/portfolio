@@ -8,14 +8,19 @@ export function Impact() {
         <dl className="grid grid-cols-2 gap-px overflow-hidden border border-line bg-line lg:grid-cols-4">
           {impact.stats.map((s) => (
             <div
-              key={s.label}
+              key={s.lead}
               className="group bg-ink px-5 py-6 transition-colors duration-500 hover:bg-ink-2 sm:px-6 sm:py-8"
             >
               <dt className="display-tight text-3xl transition-colors duration-500 group-hover:text-accent sm:text-4xl">
                 {s.value}
               </dt>
+              {/* The noun carries the accent and the qualifier stays quiet,
+                  so a glance down the row reads as the four things counted. */}
               <dd className="label-mono mt-2 leading-relaxed normal-case tracking-normal">
-                {s.label}
+                <span className="text-accent-dim transition-colors duration-500 group-hover:text-accent">
+                  {s.lead}
+                </span>{" "}
+                {s.rest}
               </dd>
             </div>
           ))}

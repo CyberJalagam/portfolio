@@ -422,11 +422,12 @@ export const about = {
 };
 
 export const impact = {
+  // `lead` is the noun the tile is about and is coloured; `rest` trails it.
   stats: [
-    { value: "900+", label: "Mentees in the program I run" },
-    { value: "100+", label: "Mentors onboarded and matched" },
-    { value: "150+", label: "Students through pre-arrival support" },
-    { value: "10+", label: "Campus tours across four open houses" },
+    { value: "900+", lead: "Mentees", rest: "in the program I run" },
+    { value: "100+", lead: "Mentors", rest: "onboarded and matched" },
+    { value: "150+", lead: "Students", rest: "through pre-arrival support" },
+    { value: "10+", lead: "Campus tours", rest: "across four open houses" },
   ],
   highlights: [
     "Advanced from Peer Mentor to Lead Mentor in Fall 2025, taking over the whole peer mentoring program: mentor and mentee matching, platform inquiries, and drop-in sessions for mentors hitting problems.",
