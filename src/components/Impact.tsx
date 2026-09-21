@@ -64,13 +64,18 @@ export function Impact() {
         <div className="lg:col-span-4">
           <Reveal delay={0.12}>
             <h3 className="label-mono">Awards &amp; certifications</h3>
-            <ul className="mt-5 space-y-3">
+            <ul className="mt-6 space-y-5">
               {impact.awards.map((a) => (
                 <li
-                  key={a}
-                  className="border-l border-line pl-4 text-sm leading-relaxed text-muted transition-colors duration-300 hover:border-accent-dim hover:text-cream"
+                  key={a.name}
+                  className="group border-l-2 border-line py-1 pl-5 transition-colors duration-300 hover:border-accent"
                 >
-                  {a}
+                  <p className="display-tight text-lg leading-snug text-cream transition-colors duration-300 group-hover:text-accent sm:text-xl">
+                    {a.name}
+                  </p>
+                  {a.term ? (
+                    <p className="label-mono mt-1.5">{a.term}</p>
+                  ) : null}
                 </li>
               ))}
             </ul>

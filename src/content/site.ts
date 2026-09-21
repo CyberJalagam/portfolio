@@ -456,10 +456,12 @@ export const impact = {
       ],
     },
   ],
+  // Term is split out so the name can carry the weight and the date sits
+  // under it. Certifications have no term.
   awards: [
-    "International Student Achievement Award, Summer 2026",
-    "Student Ambassador Award, Winter 2026",
-    "PMI Project Management Ready",
-    "Certified Blockchain Associate",
+    { name: "International Student Achievement Award", term: "Summer 2026" },
+    { name: "Student Ambassador Award", term: "Winter 2026" },
+    { name: "PMI Project Management Ready", term: null },
+    { name: "Certified Blockchain Associate", term: null },
   ],
 };
