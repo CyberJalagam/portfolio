@@ -46,3 +46,12 @@ down.
 Set the real domain in `site.url`. It backs `metadataBase` and the
 canonical and OG URLs. `opengraph-image.tsx` builds the 1200x630 preview
 card from the same data; `icon.svg` is the favicon.
+
+## Deploying
+
+Vercel, with the stock Next.js preset. No `vercel.json` needed.
+
+GitHub Pages is deliberately unused. Pages serves static files only, and
+this repo holds source rather than a built site, so Pages falls back to
+rendering `README.md` as the homepage. Turn it off under Settings then
+Pages rather than leaving that page live.
