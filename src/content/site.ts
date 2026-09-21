@@ -56,16 +56,40 @@ export const projects: Project[] = [
     links: [{ label: "Private client system", href: null }],
   },
   {
-    title: "Android Build & Release Automation",
-    year: "2021 - 2026",
+    title: "Kernel Build & Release Pipeline",
+    year: "2021",
     kind: "Infrastructure · CI/CD",
     blurb:
-      "A pipeline that turns a multi-hour manual AOSP setup into a single command, and ships every push to beta testers automatically.",
+      "Push a commit and flashable kernel builds land in a Telegram channel. Four artifacts, two devices, nobody cutting a release by hand.",
     detail: [
-      "GitHub Actions workflow that compiles a custom Android kernel on every push and publishes the build to a Telegram channel for testers.",
-      "Provisioning tooling that stands up a clean AOSP build environment, applies device patches, and runs unattended ROM builds on a remote server.",
+      "GitHub Actions builds on every push: clones the source, pulls the Clang and GCC cross-toolchains, and compiles for arm64 on a clean runner.",
+      "Produces four artifacts a run, a standard and a fast-charge variant for two Realme devices, toggling that feature by applying and reverting a kernel patch between builds.",
+      "Packages each build into a flashable AnyKernel3 zip and pushes it to a Telegram channel over the Bot API, captioned with the branch, commit, compiler and device it came from.",
+      "Checks the compiled image exists before publishing and posts a failure notice pointing at the CI logs instead, so a broken build never ships quietly.",
     ],
-    stack: ["Python", "Bash", "Linux", "GitHub Actions", "Make"],
+    stack: [
+      "GitHub Actions",
+      "Bash",
+      "Telegram Bot API",
+      "Clang",
+      "Linux kernel",
+      "AnyKernel3",
+    ],
+    // Repo is private: https://github.com/CyberJalagam/AlienKernel-CI
+    links: [{ label: "Private repository", href: null }],
+  },
+  {
+    title: "AOSP Build Automation",
+    year: "2020 - 2021",
+    kind: "Infrastructure · Tooling",
+    blurb:
+      "Hand it device trees and it builds you a ROM. A shell suite that takes a bare machine to a finished build unattended.",
+    detail: [
+      "Provisions the whole AOSP build environment from scratch: dependencies, toolchain and source sync, turning a multi-hour manual setup into a single command.",
+      "Applies device-specific patches before building, including SELinux and VoLTE fixes that otherwise have to be reapplied by hand every sync.",
+      "Runs unattended ROM and kernel builds on a remote server and uploads the finished artifact when it is done.",
+    ],
+    stack: ["Bash", "Python", "Linux", "AOSP", "Make"],
     links: [
       {
         label: "aosp_rom_automation",
@@ -74,7 +98,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "Stacks",
+    title: "Book Discovery Platform",
     year: "2026",
     kind: "Full-stack · Two services",
     blurb:
@@ -85,7 +109,15 @@ export const projects: Project[] = [
       "Per-user shelves persisted in MongoDB, so saved books survive logout and follow the account rather than the browser.",
       "Paginated search across a public book catalog, with client-side caching so repeat queries resolve from memory instead of hitting the API again.",
     ],
-    stack: ["Next.js", "React", "Express", "MongoDB", "JWT", "bcrypt", "Vercel"],
+    stack: [
+      "Next.js",
+      "React",
+      "Express",
+      "MongoDB",
+      "JWT",
+      "bcrypt",
+      "Vercel",
+    ],
     links: [{ label: "Repository", href: null }],
   },
   {
