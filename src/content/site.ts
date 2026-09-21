@@ -74,16 +74,18 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "Book Discovery Platform",
+    title: "Stacks",
     year: "2026",
-    kind: "Full-stack",
+    kind: "Full-stack · Two services",
     blurb:
-      "A full-stack reading app with a React front end and a separate Express API, deployed as two services.",
+      "A reading app for finding your next book and keeping a shelf of your own, split across a React client and a standalone API.",
     detail: [
-      "JWT auth over bcrypt-hashed credentials, route guards on protected pages, and per-user saved collections in MongoDB.",
-      "Public catalog API integrated with client-side caching and paginated search.",
+      "Ships as two deployed services rather than one: a Next.js client and its own Express API, so the front end talks across a real HTTP boundary instead of reaching straight into the database.",
+      "JWT sessions over bcrypt-hashed credentials, with route guards that keep protected pages shut until a session checks out.",
+      "Per-user shelves persisted in MongoDB, so saved books survive logout and follow the account rather than the browser.",
+      "Paginated search across a public book catalog, with client-side caching so repeat queries resolve from memory instead of hitting the API again.",
     ],
-    stack: ["Next.js", "Express", "MongoDB", "JWT", "Vercel"],
+    stack: ["Next.js", "React", "Express", "MongoDB", "JWT", "bcrypt", "Vercel"],
     links: [{ label: "Repository", href: null }],
   },
   {
