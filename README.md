@@ -1,66 +1,48 @@
 # jaishnav.dev
 
-Personal portfolio. A single scrolling page, dark editorial, built with
-Next.js 16 (App Router), Tailwind v4 and Motion.
+Personal site. Single page, Next.js 16 (App Router), Tailwind v4, Motion.
 
 ```bash
-npm run dev      # http://localhost:3100
-npm run build    # production build
+npm run dev      # localhost:3100
+npm run build
 npm run lint
 ```
 
-## Editing content
+## Content
 
-**Everything you will want to change lives in [`src/content/site.ts`](src/content/site.ts).**
-Copy, links, projects, jobs, skills, education, all of it. The components
-read from that file and nothing else hardcodes content, so you should
-never need to open a `.tsx` file to update the site.
+All copy and links live in [`src/content/site.ts`](src/content/site.ts).
+Components read from it, so editing the site means editing that one file.
 
-A link with `href: null` renders as a muted, non-clickable label (used for
-private repos and client work). Fill the `href` in and it becomes a real
-link automatically.
+`href: null` renders a muted, non-clickable label instead of a link, which
+is what private repos and client work use. Fill it in and it becomes a
+link.
 
-## Assets in `public/`
+In `impact.highlights`, `**wrapped**` text renders emphasised.
 
-| File | Notes |
-| --- | --- |
-| `portrait.jpg` | Hero photo. Any of `.jpg/.jpeg/.png/.webp` is picked up automatically; with none present the hero shows a monogram placeholder instead of breaking. |
-| `Jaishnav_Prasad_Resume.pdf` | Linked from the nav, hero and mobile menu. Overwrite in place to update. |
+## public/
 
-The full-resolution original photo is kept in `assets/` (gitignored, since it is
-19 MB). The shipped copy is resized to 1400px wide and compressed to ~67 KB.
-To regenerate after replacing the original:
+- `portrait.jpg` — hero photo. `.jpg/.jpeg/.png/.webp` all work, and a
+  `portrait-cutout.*` takes precedence if a transparent version exists.
+  With none present the hero falls back to a monogram.
+- `Jaishnav_Prasad_Resume.pdf` — overwrite in place to update.
+
+The 19 MB original lives in `assets/` (gitignored). The shipped copy is
+1400px wide, ~67 KB. To regenerate:
 
 ```bash
-node -e "const s=require('sharp');s('assets/portrait-original.jpg').rotate().resize({width:1400}).jpeg({quality:82,mozjpeg:true,progressive:true}).toFile('public/portrait.jpg')"
+node -e "require('sharp')('assets/portrait-original.jpg').rotate().resize({width:1400}).jpeg({quality:82,mozjpeg:true}).toFile('public/portrait.jpg')"
 ```
 
-## GitHub contribution graph (currently off)
+## Contribution graph
 
-**Not on the page right now.** The code is intact and unused: see the
-comment at the top of [`src/app/page.tsx`](src/app/page.tsx) for the exact
-four lines and the block to restore.
+Off. `Contributions.tsx` and `lib/github.ts` still work; putting them back
+also means restoring `export const revalidate = 3600` in `page.tsx`, since
+the graph is the only data fetch on the site. It reads from the public
+jogruber proxy, needs no token, and degrades to a plain link if that is
+down.
 
-When on, `src/lib/github.ts` pulls the contribution calendar from the public
-`github-contributions-api.jogruber.de` proxy. No token, nothing to rotate.
-It fetches every year from 2020 to the current one, drops the empty ones,
-and renders a year picker. If the upstream is down the section degrades to
-a plain link rather than erroring.
+## Before going live
 
-The graph is the only thing on the site that fetches anything. With it off
-the page is fully static, which is why there is no longer a `revalidate`
-export; putting the graph back means putting that back too.
-
-## Social preview
-
-`src/app/opengraph-image.tsx` generates the 1200×630 link-preview card at
-build time from the same `site.ts` data, so it can't drift out of sync.
-`src/app/icon.svg` is the favicon.
-
-Before going live, set the real domain in `site.url`. It backs
-`metadataBase` and the canonical/OG URLs.
-
-## Deploying
-
-Import the repo on Vercel; the defaults are correct. Set the custom domain,
-then update `site.url` to match.
+Set the real domain in `site.url`. It backs `metadataBase` and the
+canonical and OG URLs. `opengraph-image.tsx` builds the 1200x630 preview
+card from the same data; `icon.svg` is the favicon.

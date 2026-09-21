@@ -3,14 +3,9 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import { site } from "@/content/site";
 
-/**
- * A background-free PNG is what the layered hero really wants: it sits over
- * the oversized name with nothing to give away a rectangle. Drop one in and
- * it is picked up automatically, no code change needed.
- */
+// A transparent PNG is used when present, otherwise the plain photo.
 const CUTOUTS = ["portrait-cutout.png", "portrait-cutout.webp"];
 
-/** Fallback: the ordinary photo, blended so its dark studio backdrop dissolves. */
 const PHOTOS = [
   "portrait.jpg",
   "portrait.jpeg",
@@ -51,22 +46,10 @@ export function Portrait() {
         sizes="(max-width: 640px) 80vw, (max-width: 1024px) 55vw, 460px"
         className={
           cutout
-            ? // Real alpha edges already, so nothing to hide.
-              "object-contain object-bottom"
-            : // No alpha channel, so the rectangle is dissolved by a mask
-              // instead, letting the photo merge into the page beside the
-              // copy rather than reading as a box.
-              //
-              // Two layers, intersected. The radial handles the left and
-              // right falloff, and is given a tall vertical radius so it
-              // barely touches the body. The vertical gradient then holds
-              // the bottom opaque to 86% and fades only over the last
-              // stretch, which keeps the torso and folded arms readable. A
-              // single radial tight enough to clear the sides was cropping
-              // the body well before the frame edge.
-              //
-              // Colour is left alone; only a slight contrast lift, to settle
-              // the studio backdrop against the page.
+            ? "object-contain object-bottom"
+            : // Two masks, intersected: the radial fades the sides, the
+              // linear holds the bottom opaque so the torso is not cropped.
+              // One radial tight enough to clear the sides ate the body.
               "object-cover object-top [filter:contrast(1.08)_saturate(1.05)] [mask-composite:intersect] [mask-image:radial-gradient(58%_96%_at_52%_44%,#000_54%,rgba(0,0,0,0.45)_78%,transparent_97%),linear-gradient(to_bottom,transparent,#000_13%,#000_86%,transparent)] [-webkit-mask-composite:source-in]"
         }
       />

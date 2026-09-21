@@ -9,26 +9,9 @@ import { Portrait } from "@/components/Portrait";
 import { Projects } from "@/components/Projects";
 import { Section, SectionHeader } from "@/components/Section";
 
-/**
- * The GitHub contribution graph is shelved, not deleted. To bring it back,
- * restore these four things:
- *
- *   import { Contributions } from "@/components/Contributions";
- *   import { getContributionYears } from "@/lib/github";
- *   export const revalidate = 3600;   // the graph is the only live data
- *   const years = await getContributionYears();
- *
- * then drop this back inside the open-source section:
- *
- *   <div className="mt-16">
- *     <SectionHeader index="Activity" title={`@${site.github}`} />
- *     <Contributions years={years} />
- *   </div>
- *
- * Contributions.tsx and lib/github.ts are both untouched and still work.
- * With the graph out, nothing on the page fetches, so it is fully static
- * and needs no revalidate window.
- */
+// Contributions.tsx and lib/github.ts are kept but unused. Re-adding them
+// means restoring `export const revalidate = 3600`, since the graph is the
+// only data fetch on the page.
 export default function Home() {
   return (
     <>

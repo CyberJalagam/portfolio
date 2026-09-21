@@ -2,13 +2,7 @@ import { Fragment } from "react";
 import { impact } from "@/content/site";
 import { Reveal } from "./Reveal";
 
-/**
- * Renders `**marked**` runs from the highlight strings in cream against the
- * muted body, so the numbers and the words that carry the claim (mentees,
- * mentors, the programs) are what the eye lands on when scanning. Splitting
- * on the delimiter keeps the emphasis in the content file rather than
- * hardcoding a word list here.
- */
+/** Renders `**marked**` runs from the content file as emphasis. */
 function Emphasize({ text }: { text: string }) {
   return (
     <>
@@ -28,7 +22,6 @@ function Emphasize({ text }: { text: string }) {
 export function Impact() {
   return (
     <div className="mt-10">
-      {/* Numbers first: they carry further than the prose under them. */}
       <Reveal>
         <dl className="grid grid-cols-2 gap-px overflow-hidden border border-line bg-line lg:grid-cols-4">
           {impact.stats.map((s) => (

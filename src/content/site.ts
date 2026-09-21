@@ -1,8 +1,4 @@
-/**
- * Every piece of copy and every link on the site lives here.
- * Nothing else should hardcode content. Edit this file, not the components.
- * `href: null` renders the label as a muted, non-clickable tag.
- */
+// All site copy and links. `href: null` renders a muted, non-clickable label.
 
 export const site = {
   name: "Jaishnav Prasad",
@@ -391,11 +387,7 @@ export const about = {
   ],
 };
 
-/**
- * Quantified outcomes from the student-services and governance work.
- * Figures come from the involvement write-up; keep them defensible.
- * `**double asterisks**` mark the words the Impact section emphasises.
- */
+// `**text**` in highlights renders emphasised.
 export const impact = {
   stats: [
     { value: "900+", label: "Mentees in the program I run" },

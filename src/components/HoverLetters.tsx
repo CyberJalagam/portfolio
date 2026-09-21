@@ -1,19 +1,11 @@
 import { Fragment } from "react";
 
 /**
- * Splits text so each letter reacts to the cursor on its own, which makes
- * sweeping across a headline feel like a wave rather than one block flipping
- * state. Pure CSS, so this stays a server component.
+ * Per-letter hover, so the cursor ripples across a headline instead of
+ * flipping it as one block. CSS only.
  *
- * Words are kept whole and wrapping happens at spaces only, otherwise the
- * inline-block letters would break mid-word on narrow screens.
- *
- * Accessibility: the split letters are hidden from assistive tech, so the
- * SEMANTIC ELEMENT AROUND THIS MUST CARRY aria-label with the same string.
- * Headings support naming via aria-label; a bare <span> does not, which is
- * why the name lives on the heading rather than in here. Duplicating the
- * text in a visually hidden span would work too, but it would then appear
- * twice in the DOM and in anything the visitor copies.
+ * The letters are aria-hidden, so whatever element wraps this needs its own
+ * aria-label. A bare <span> cannot be named; headings can.
  */
 export function HoverLetters({
   text,
