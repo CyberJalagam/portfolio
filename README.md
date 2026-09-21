@@ -17,8 +17,6 @@ Components read from it, so editing the site means editing that one file.
 is what private repos and client work use. Fill it in and it becomes a
 link.
 
-In `impact.highlights`, `**wrapped**` text renders emphasised.
-
 ## public/
 
 - `portrait.jpg`: hero photo. `.jpg/.jpeg/.png/.webp` all work, and a

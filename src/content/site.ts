@@ -421,7 +421,6 @@ export const about = {
   ],
 };
 
-// `**text**` in highlights renders emphasised.
 export const impact = {
   stats: [
     { value: "900+", label: "Mentees in the program I run" },
@@ -430,15 +429,15 @@ export const impact = {
     { value: "10+", label: "Campus tours across four open houses" },
   ],
   highlights: [
-    "Advanced from Peer Mentor to **Lead Mentor** in Fall 2025, taking over the whole peer mentoring program: **mentor** and **mentee** matching, platform inquiries, and drop-in sessions for mentors hitting problems.",
-    "Hosted the **International Virtual Orientation** and **Virtual Orientation for All Students** for the **Fall 2026** term, managing attendees and running the flow on the day.",
-    "Kept the program running through a **full-time staff strike**, absorbing administrative duties so that **no student was left without support**.",
-    "Personally mentored **25+ mentees**, including a reassignment after a student's poor experience with a previous **mentor**.",
-    "Ran **10+ campus tours** across four open house cycles, reaching **30+ prospective students** and their families.",
-    "Hosted **meet-and-greet lounges** for international virtual orientation and in-person events, and sat on the **student experience panel**.",
-    "Escalated **platform usability** problems students were hitting to program coordinators, feeding into program improvements.",
-    "Wrote **exam-preparation posts** on MySeneca and contributed content to **Seneca Student Life's Instagram**.",
-    "Volunteered at the **Taiwanese Student Association's** inaugural King campus event, and supported locker programming and clearances.",
+    "Advanced from Peer Mentor to Lead Mentor in Fall 2025, taking over the whole peer mentoring program: mentor and mentee matching, platform inquiries, and drop-in sessions for mentors hitting problems.",
+    "Hosted the International Virtual Orientation and Virtual Orientation for All Students for the Fall 2026 term, managing attendees and running the flow on the day.",
+    "Kept the program running through a full-time staff strike, absorbing administrative duties so that no student was left without support.",
+    "Personally mentored 25+ mentees, including a reassignment after a student's poor experience with a previous mentor.",
+    "Ran 10+ campus tours across four open house cycles, reaching 30+ prospective students and their families.",
+    "Hosted meet-and-greet lounges for international virtual orientation and in-person events, and sat on the student experience panel.",
+    "Escalated platform usability problems students were hitting to program coordinators, feeding into program improvements.",
+    "Wrote exam-preparation posts on MySeneca and contributed content to Seneca Student Life's Instagram.",
+    "Volunteered at the Taiwanese Student Association's inaugural King campus event, and supported locker programming and clearances.",
   ],
   awards: [
     "International Student Achievement Award, Summer 2026",
