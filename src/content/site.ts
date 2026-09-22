@@ -57,7 +57,7 @@ export const projects: Project[] = [
   },
   {
     title: "Kernel Build & Release Pipeline",
-    year: "2021",
+    year: "2026",
     kind: "Infrastructure · CI/CD",
     blurb:
       "Push a commit and flashable kernel builds land in a Telegram channel. Four artifacts, two devices, nobody cutting a release by hand.",
@@ -80,7 +80,7 @@ export const projects: Project[] = [
   },
   {
     title: "AOSP Build Automation",
-    year: "2020 - 2021",
+    year: "2026",
     kind: "Infrastructure · Tooling",
     blurb:
       "Hand it device trees and it builds you a ROM. A shell suite that takes a bare machine to a finished build unattended.",
