@@ -1,6 +1,5 @@
 import { About } from "@/components/About";
 import { Contact, Footer } from "@/components/Contact";
-import { Cursor } from "@/components/Cursor";
 import { Experience } from "@/components/Experience";
 import { Hero } from "@/components/Hero";
 import { Impact } from "@/components/Impact";
@@ -16,7 +15,6 @@ import { Section, SectionHeader } from "@/components/Section";
 export default function Home() {
   return (
     <>
-      <Cursor />
       <Nav />
 
       <main>
