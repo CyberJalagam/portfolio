@@ -60,12 +60,12 @@ export const projects: Project[] = [
     year: "2026",
     kind: "Infrastructure · CI/CD",
     blurb:
-      "Push a commit and flashable kernel builds land in a Telegram channel. Four artifacts, two devices, nobody cutting a release by hand.",
+      "Push a commit and four flashable kernel builds come back. Two devices, two variants, nobody cutting a release by hand.",
     detail: [
-      "GitHub Actions builds on every push: clones the source, pulls the Clang and GCC cross-toolchains, and compiles for arm64 on a clean runner.",
-      "Produces four artifacts a run, a standard and a fast-charge variant for two Realme devices, toggling that feature by applying and reverting a kernel patch between builds.",
-      "Packages each build into a flashable AnyKernel3 zip and pushes it to a Telegram channel over the Bot API, captioned with the branch, commit, compiler and device it came from.",
-      "Checks the compiled image exists before publishing and posts a failure notice pointing at the CI logs instead, so a broken build never ships quietly.",
+      "Runs on every push and pull request, or on demand from the Actions tab with a variant picker, and cancels any run that a newer push supersedes.",
+      "Produces four flashable AnyKernel3 zips a run: standard and fast-charge builds for two MediaTek MT6771 devices, cross-compiled with Clang and GCC toolchains the script fetches itself.",
+      "Ships each build two ways, pushed to a Telegram channel over the Bot API and uploaded as a workflow artifact, so testers and the repo both end up with the zip.",
+      "Credentials come from Actions secrets, and a run with none configured degrades to artifact-only rather than failing.",
     ],
     stack: [
       "GitHub Actions",
@@ -75,8 +75,12 @@ export const projects: Project[] = [
       "Linux kernel",
       "AnyKernel3",
     ],
-    // Repo is private: https://github.com/CyberJalagam/AlienKernel-CI
-    links: [{ label: "Private repository", href: null }],
+    links: [
+      {
+        label: "Kernel-CI",
+        href: "https://github.com/CyberJalagam/Kernel-CI",
+      },
+    ],
   },
   {
     title: "AOSP Build Automation",
