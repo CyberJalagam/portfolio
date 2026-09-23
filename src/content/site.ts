@@ -409,6 +409,7 @@ export const about = {
     { k: "Studying", v: "HBTech, Software Development" },
     { k: "GPA", v: "3.7" },
     { k: "Graduating", v: "Summer 2028" },
+    { k: "Open source since", v: "2020" },
     { k: "Languages", v: "English, Hindi, Tamil, Malayalam" },
   ],
   education: [

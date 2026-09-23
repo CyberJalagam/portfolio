@@ -16,7 +16,7 @@ export function About() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <dl className="mt-10 grid grid-cols-1 gap-px overflow-hidden border border-line bg-line sm:grid-cols-2">
+          <dl className="mt-10 grid grid-cols-1 gap-px overflow-hidden border border-line bg-line sm:grid-cols-2 sm:[&>div:last-child:nth-child(odd)]:col-span-2">
             {about.facts.map((f) => (
               <div
                 key={f.k}
